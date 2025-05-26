@@ -1,0 +1,21 @@
+/* CUSTOM RULES */
+
+.tada-content ul {
+    padding-left: 20px;
+}
+.tada-content ul li {
+    list-style-type: disc;
+}
+.mb-10 {
+    margin-bottom: 100px;
+}
+
+.bold-price {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #333;
+}
+
+.icon-lg {
+    font-size: 26px;
+}

@@ -19,3 +19,26 @@
 .icon-lg {
     font-size: 26px;
 }
+
+/* Swiper slider */
+.ed-hero__slider-item .ed-container-expand {
+    position: absolute !important;
+    top: 20px;
+    right: 5px;
+}
+
+.pt-30 {
+    padding-top: 300px;
+}
+.pb-10 {
+    padding-bottom: 100px;
+}
+
+@media screen and (max-width: 767px) {
+    .pt-30 {
+        padding-top: 150px;
+    }
+    .pb-10 {
+        padding-bottom: 50px;
+    }
+}

@@ -9,7 +9,7 @@ const Vehicles = () => {
                     <div className="ed-section-head d-flex-between">
                         <div className="ed-section-head__info">
                             <span className="ed-section-head__sm-title">Electric Vehicles</span>
-                            <h3 className="ed-section-head__title m-0 ed-split-text left">
+                            <h3 className="ed-section-head__title m-0 ed-split-text left" suppressHydrationWarning>
                                 Explore All Vehicles
                             </h3>
                         </div>

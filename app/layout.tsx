@@ -7,6 +7,7 @@ import Nav from "@/components/Layouts/Nav";
 import MobileNav from "@/components/Layouts/MobileNav";
 import Footer from "@/components/Layouts/Footer";
 import ShoppingCart from "@/components/Layouts/ShoppingCart";
+import ContactUs from "@/components/Layouts/ContactUs";
 
 export const metadata: Metadata = {
   title: "TADA Autos",
@@ -27,18 +28,16 @@ export default function RootLayout({
 }>) {
   return (
     <html className="no-js" lang="en">
-        <head>
-        <title>TADA</title>
-        
+        <head>        
         <link rel="shortcut icon" href="/assets/images/favicon.svg" />
 
-        <link rel="stylesheet" href="/assets/plugins/css/bootstrap.min.css" />
+        {/* <link rel="stylesheet" href="/assets/plugins/css/bootstrap.min.css" /> */}
 
         <link rel="stylesheet" href="/assets/plugins/css/animate.min.css" />
 
-        <link rel="stylesheet" href="/assets/plugins/css/owl.carousel.min.css" />
+        {/* <link rel="stylesheet" href="/assets/plugins/css/owl.carousel.min.css" /> */}
 
-        <link rel="stylesheet" href="/assets/plugins/css/swiper-bundle.min.css" />
+        {/* <link rel="stylesheet" href="/assets/plugins/css/swiper-bundle.min.css" /> */}
 
         <link rel="stylesheet" href="/assets/plugins/css/maginific-popup.min.css" />
 
@@ -50,14 +49,6 @@ export default function RootLayout({
     </head>
 
         <body className={`${poppinsFont.variable} element-wrapper`}>
-            {/* <div id="preloader">
-                <div id="ed-preloader" className="ed-preloader">
-                    <div className="animation-preloader">
-                        <div className="spinner"></div>
-                    </div>
-                </div>
-            </div> */}
- 
             <div id="ed-mouse">
                 <div id="cursor-ball"></div>
             </div>
@@ -125,94 +116,7 @@ export default function RootLayout({
 
             <ShoppingCart />
 
-            <div className="offcanvas offcanvas-end ed-sidebar" id="edSidebar" aria-labelledby="offcanvasRightLabel">
-                <div className="ed-sidebar-header">
-                    <a href="#" className="ed-sidebar-logo">
-                        <Image 
-                            src="/assets/images/logo.svg"
-                            alt="TADA"
-                            width={122} 
-                            height={70}
-                            style={{ width: "auto", height: "auto" }}
-                            priority
-                        />
-                    </a>
-                    <button type="button" className="text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
-                        <i className="fi fi-rr-cross"></i>
-                    </button>
-                </div>
-                <div className="ed-sidebar-body m-0">
-                    <div className="ed-sidebar-widget">
-                        <h3 className="ed-sidebar-widget-title">Contact Us:</h3>
- 
-                        <div className="ed-contact__info-item">
-                            <div className="ed-contact__info-icon">
-                                <Image src="/assets/images/icons/icon-phone-blue.svg" alt="icon-phone-blue" width={100} 
-                                        height={100} />
-                            </div>
-                            <div className="ed-contact__info-content">
-                                <span>Tech. Support</span>
-                                <a href="tel:+234 801 2345 678">+234 801 2345 678</a>
-                            </div>
-                        </div>
-
-                        <div className="ed-contact__info-item">
-                            <div className="ed-contact__info-icon">
-                                <Image 
-                                src="/assets/images/icons/icon-envelope-blue.svg" 
-                                alt="icon-envelope-blue"
-                                width={100} 
-                                height={100} />
-                            </div>
-                            <div className="ed-contact__info-content">
-                                <span>Send Message</span>
-                                <a href="mailto:help@tadaautos.com">help@tadaautos.com</a>
-                            </div>
-                        </div>
-
-                        <div className="ed-contact__info-item">
-                            <div className="ed-contact__info-icon">
-                                <Image 
-                                    src="/assets/images/icons/icon-location-blue.svg" 
-                                    alt="icon-location-blue"
-                                    width={100} 
-                                    height={100}
-                                />
-                            </div>
-                            <div className="ed-contact__info-content">
-                                <span>Where We Are</span>
-                                <a href="#">Abuja, Nigeria</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="ed-sidebar-widget">
-                        <h3 className="ed-sidebar-widget-title">Follow Us:</h3>
-                        <ul className="ed-sidebar-social">
-                            <li>
-                                <a href="https://www.facebook.com/" target="_blank"><Image src="/assets/images/icons/icon-dark-facebook.svg" alt="icon-dark-facebook" width={100} 
-                                        height={100} /></a>
-                            </li>
-                            <li>
-                                <a href="https://www.twitter.com/" target="_blank"><Image src="/assets/images/icons/icon-dark-twitter.svg" alt="icon-dark-twitter" width={100} 
-                                        height={100} /></a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/" target="_blank"><Image src="/assets/images/icons/icon-dark-instagram.svg" alt="icon-dark-instagram" width={100} 
-                                        height={100} /></a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div className="ed-sidebar-widget">
-                        <h3 className="ed-sidebar-widget-title">Subscribe</h3>
-                        <form action="#" method="post" className="ed-sidebar-subscribe">
-                            <input type="email" name="email-address" placeholder="Enter email" required />
-                            <button type="submit" className="ed-btn">Subscribe<i className="fi fi-rr-arrow-small-right"></i></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <ContactUs />
 
             <div className="progress-wrap">
                 <svg className="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -220,33 +124,33 @@ export default function RootLayout({
                 </svg>
             </div>
             
+            <Script src="/assets/plugins/js/jquery.min.js"></Script>
+            <Script src="/assets/plugins/js/jquery-migrate.js"></Script>
+
+            <Script src="/assets/plugins/js/bootstrap.min.js"></Script>
+
+            <Script src="/assets/plugins/js/gsap/gsap.js"></Script>
+            <Script src="/assets/plugins/js/gsap/gsap-scroll-to-plugin.js"></Script>
+            <Script src="/assets/plugins/js/gsap/gsap-scroll-smoother.js"></Script>
+            <Script src="/assets/plugins/js/gsap/gsap-scroll-trigger.js"></Script>
+            <Script src="/assets/plugins/js/gsap/gsap-split-text.js"></Script>
+
+            <Script src="/assets/plugins/js/wow.min.js"></Script>
+
+            <Script src="/assets/plugins/js/owl.carousel.min.js"></Script>
+
+            {/* <Script src="/assets/plugins/js/swiper-bundle.min.js"></Script> */}
+
+            <Script src="/assets/plugins/js/magnific-popup.min.js"></Script>
+
+            <Script src="/assets/plugins/js/jquery.counterup.min.js"></Script>
+            <Script src="/assets/plugins/js/waypoints.min.js"></Script>
+
+            <Script src="/assets/plugins/js/nice-select.min.js"></Script>
+            <Script src="/assets/plugins/js/backToTop.js"></Script>
+
+            <Script src="/assets/plugins/js/active.js"></Script>
         </body>
-        <Script src="/assets/plugins/js/jquery.min.js"></Script>
-        <Script src="/assets/plugins/js/jquery-migrate.js"></Script>
-
-        <Script src="/assets/plugins/js/bootstrap.min.js"></Script>
-
-        <Script src="/assets/plugins/js/gsap/gsap.js"></Script>
-        <Script src="/assets/plugins/js/gsap/gsap-scroll-to-plugin.js"></Script>
-        <Script src="/assets/plugins/js/gsap/gsap-scroll-smoother.js"></Script>
-        <Script src="/assets/plugins/js/gsap/gsap-scroll-trigger.js"></Script>
-        <Script src="/assets/plugins/js/gsap/gsap-split-text.js"></Script>
-
-        <Script src="/assets/plugins/js/wow.min.js"></Script>
-
-        <Script src="/assets/plugins/js/owl.carousel.min.js"></Script>
-
-        <Script src="/assets/plugins/js/swiper-bundle.min.js"></Script>
-
-        <Script src="/assets/plugins/js/magnific-popup.min.js"></Script>
-
-        <Script src="/assets/plugins/js/jquery.counterup.min.js"></Script>
-        <Script src="/assets/plugins/js/waypoints.min.js"></Script>
-
-        <Script src="/assets/plugins/js/nice-select.min.js"></Script>
-        <Script src="/assets/plugins/js/backToTop.js"></Script>
-
-        <Script src="/assets/plugins/js/active.js"></Script>
     </html>
  );
 }

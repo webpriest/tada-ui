@@ -6,7 +6,8 @@ import Testimonials from "@/components/Sections/Testimonials";
 import Vehicles from "@/components/Sections/Vehicles";
 import VideoOverlay from "@/components/Sections/VideoOverlay";
 
-export default function Home() {
+export default async function Home() {
+  
   return (
     <>
       <Slider />

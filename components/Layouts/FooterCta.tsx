@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 const FooterCta = () => {
   return (
@@ -44,7 +45,7 @@ const FooterCta = () => {
                                 </p>
                             </div>
                             <div className="ed-call-action__content-btn">
-                                <a href="{{ route('vehicle.index" className="ed-btn"> Place Your Order Now<i className="fi fi-rr-arrow-small-right"></i> </a>
+                                <Link href="/vehicles" className="ed-btn"> Place Your Order Now<i className="fi fi-rr-arrow-small-right"></i></Link>
                             </div>
                         </div>
                     </div>

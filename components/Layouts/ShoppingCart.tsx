@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 const ShoppingCart = () => {
   return (
@@ -38,9 +39,9 @@ const ShoppingCart = () => {
 
         <div className="ed-sidebar-footer">
             <div className="ed-sidebar-cart-subtotal">
-                <p>Subtotal:<span> ₦0</span></p>
-                <a href="#" className="ed-sidebar-cart-btn">Go to cart</a>
-                <a href="#" className="ed-sidebar-cart-btn">Checkout</a>
+                <p>Subtotal: <span>₦0</span></p>
+                <Link href="/cart" className="ed-sidebar-cart-btn">Go to chosen vehicle(s)</Link>
+                <Link href="/checkout" className="ed-sidebar-cart-btn">Make Payment</Link>
             </div>
         </div>
     </div>

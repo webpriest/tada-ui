@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Nav = () => {
   return (
@@ -6,14 +7,15 @@ const Nav = () => {
         <nav className="ed-header__navigation">
             <ul className="ed-header__menu">
                 <li className="#">
-                    <a href="#">Home</a>
+                    <Link href="/">Home</Link>
                 </li>
                 <li className="#">
-                    <a href="#">Vehicles</a>
+                    <Link href="/evs">Vehicles</Link>
                 </li>
                 <li className="#">
                     <a href="#">Brands<i className="fi fi-ss-angle-small-down"></i></a>
                     <ul className="sub-menu">
+                        <li><Link href="/brands">All</Link></li>
                         <li><a href="#">Tesla</a></li>
                         <li><a href="#">Toyota</a></li>
                         <li><a href="#">BYD</a></li>
@@ -22,13 +24,13 @@ const Nav = () => {
                     </ul>
                 </li>
                 <li className="#">
-                    <a href="#">Other Products</a>
+                    <a href="/other-products">Other Products</a>
                 </li>
                 <li className="#">
-                    <a href="#">About TADA</a>
+                    <Link href="/about">About TADA</Link>
                 </li>
                 <li className="#">
-                    <a href="#">Contact</a>
+                    <Link href="/contacts">Contact</Link>
                 </li>
             </ul>
         </nav>

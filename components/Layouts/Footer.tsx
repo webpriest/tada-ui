@@ -172,7 +172,7 @@ const Footer = () => {
                     <div className="row">
                         <div className="col-12">
                             <p className="ed-footer__copyright-text">
-                                &copy; 2025 TADA Autos. All Rights Reserved | Maintained By &nbsp;
+                                &copy; { new Date().getFullYear() } TADA Autos. All Rights Reserved | Maintained By &nbsp;
                                 <a href="https://bokertech.com" target="_blank">Boker Technologies</a>.
                             </p>
                         </div>

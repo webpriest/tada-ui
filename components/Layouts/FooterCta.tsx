@@ -45,7 +45,7 @@ const FooterCta = () => {
                                 </p>
                             </div>
                             <div className="ed-call-action__content-btn">
-                                <Link href="/vehicles" className="ed-btn"> Place Your Order Now<i className="fi fi-rr-arrow-small-right"></i></Link>
+                                <Link href="/evs" className="ed-btn"> Place Your Order Now<i className="fi fi-rr-arrow-small-right"></i></Link>
                             </div>
                         </div>
                     </div>

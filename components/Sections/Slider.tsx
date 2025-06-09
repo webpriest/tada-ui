@@ -31,7 +31,8 @@ const Slider = () => {
     <section className="ed-hero">
         <Swiper
             modules={[Navigation, Pagination, Autoplay]}
-            navigation  
+            // navigation={{ nextEl: '.slider-button-next', prevEl: '.slider-button-prev' }}
+            navigation
             pagination={{ type: 'bullets', clickable: true }}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
         >

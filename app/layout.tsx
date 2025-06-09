@@ -8,6 +8,8 @@ import MobileNav from "@/components/Layouts/MobileNav";
 import Footer from "@/components/Layouts/Footer";
 import ShoppingCart from "@/components/Layouts/ShoppingCart";
 import ContactUs from "@/components/Layouts/ContactUs";
+import Link from "next/link";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "TADA Autos",
@@ -58,7 +60,7 @@ export default function RootLayout({
                     <div className="modal-content">
                         <div className="modal-header offcanvas-header">
                             <div className="offcanvas-logo">
-                                <a href="home">
+                                <Link href="/">
                                     <Image 
                                         src="/assets/images/logo.svg" 
                                         alt="TADA"
@@ -66,7 +68,8 @@ export default function RootLayout({
                                         height={70}
                                         style={{ width: "auto", height: "auto" }}
                                         priority
-                                        /></a>
+                                        />
+                                </Link>
                             </div>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                 <i className="fi fi-ss-cross"></i>
@@ -85,7 +88,7 @@ export default function RootLayout({
                             <div className="ed-header__left-widget--style2">
 
                                 <div className="ed-topbar__logo">
-                                    <a href="home">
+                                    <Link href="/">
                                         <Image 
                                             src="/assets/images/logo.svg" 
                                             alt="TADA"
@@ -94,7 +97,7 @@ export default function RootLayout({
                                             style={{ width: "auto", height: "auto" }}
                                             priority
                                         />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -107,6 +110,7 @@ export default function RootLayout({
             <div id="smooth-wrapper">
                 <div id="smooth-content">
                     <main>
+                        <Toaster position="top-right" />
                         {children}
                     </main>
 

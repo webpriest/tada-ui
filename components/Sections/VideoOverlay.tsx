@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 const VideoOverlay = () => {
   return (
@@ -8,14 +9,14 @@ const VideoOverlay = () => {
                 <div className="ed-video__shapes">
                     
                 </div>
-                <a href="https://www.youtube.com/watch?v=h5ysddrlXLw" className="ed-video__btn popup-video ed-hover-layer-2">
+                <Link href="https://www.youtube.com/watch?v=h5ysddrlXLw" className="ed-video__btn popup-video ed-hover-layer-2">
                     <Image 
                         src="/assets/images/icons/icon-play-yellow.svg" 
                         alt="play-icon"
                         width={120}
                         height={120}
                     />
-                </a>
+                </Link>
             </div>
         </div>
     </section>

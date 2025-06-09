@@ -1,4 +1,8 @@
+import { createContactMessage } from "@/app/actions"
+import Form from "next/form"
+
 const ContactForm = () => {
+
   return (
     <section className="ed-apply background-image" style={{ backgroundImage: "url(/assets/images/apply/bg-img.webp"}}>
         <div className="container ed-container">
@@ -26,48 +30,48 @@ const ContactForm = () => {
                             <div className="ed-contact__form-head">
                                 <span className="ed-contact__form-sm-title">CONTACT US</span>
                                 <h3 className="ed-contact__form-big-title">
-                                    Let us know of your preferences or inquiry
+                                    Let us know your preferences or inquiry
                                 </h3>
                             </div>
-                            <form action="" className="ed-contact__form-main">
+                            <Form action={createContactMessage} className="ed-contact__form-main">
                                 <div className="row">
                                     <div className="col-lg-12 col-12">
                                         <div className="form-group">
-                                            <input type="text" id="name" name="name" placeholder="Full name" required />
+                                            <input type="text" name="name" placeholder="Full name" />
                                         </div>
                                     </div>
                                     <div className="col-12">
                                         <div className="form-group">
-                                            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                                            <input type="email" name="email" placeholder="Enter your email" required />
                                         </div>
                                     </div>
                                     <div className="col-12">
                                         <div className="form-group">
-                                            <input type="text" id="company" name="company" placeholder="Your company (optional)" />
+                                            <input type="text" name="company" placeholder="Your company (optional)" />
                                         </div>
                                     </div>
                                     <div className="col-lg-6 col-12">
                                         <div className="form-group">
-                                            <input type="tel" id="number" name="number" placeholder="Phone" required />
+                                            <input type="tel" name="phone" placeholder="Phone" maxLength={11} />
                                         </div>
                                     </div>
 
                                     <div className="col-lg-6 col-12">
                                         <div className="form-group">
-                                            <input type="text" id="city" name="city" placeholder="City where you live" required />
+                                            <input type="text" name="city" placeholder="City where you live" />
                                         </div>
                                     </div>
 
                                     <div className="col-12">
                                         <div className="form-group">
-                                            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                                            <textarea name="message" placeholder="Enter your message"></textarea>
                                         </div>
                                     </div>
 
                                     <div className="col-12">
-                                        <div className="form-check">
+                                        {/* <div className="form-check">
                                             <label className="form-check-label" htmlFor="flexCheckDefault"> <input className="form-check-input" type="checkbox" value="1" id="flexCheckDefault" required />I agree to the Privacy Policy. </label>
-                                        </div>
+                                        </div> */}
                                     </div>
 
                                     <div className="col-12">
@@ -76,7 +80,7 @@ const ContactForm = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </Form>
                         </div>
                     </div>
                 </div>

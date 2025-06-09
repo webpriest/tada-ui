@@ -1,51 +1,56 @@
+"use client"
+
+import { useCartStore } from "@/store/cartStore";
+import { formatNumber } from "@/utils/fomatter";
 import Image from "next/image"
 import Link from "next/link"
+import { useState } from "react";
 
 const ShoppingCart = () => {
-  return (
-    <div className="offcanvas offcanvas-end ed-sidebar ed-sidebar-cart" id="edSidebarCart" aria-labelledby="offcanvasRightLabel">
-        <div className="ed-sidebar-header">
-            <h3 className="ed-sidebar-header-title">Vehicles in cart</h3>
-            <button type="button" className="text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
-                <i className="fi fi-rr-cross"></i>
-            </button>
-        </div>
+    const { items, removeWholeItem } = useCartStore()
+    const total = items.reduce((accumulated, item) => accumulated + item.price * item.quantity, 0)
 
-        {/* @if($cart_items->count() > 0) */}
-        <div className="ed-sidebar-body">
-            {/* @foreach($cart_items as $cart_item) */}
-            <div className="ed-sidebar-cart-item">
-                <div className="ed-sidebar-cart-main">
-                    <div className="ed-sidebar-cart-img">
-                        <Image 
-                            src="/assets/images/vehicles/yC9dZZEA0rtxEbdsUXTPh7OotamJrapT1vPJEW2i.webp" 
-                            alt="cart-1"
-                            width={100}
-                            height={100}
-                        />
+    return (
+        <div className="offcanvas offcanvas-end ed-sidebar ed-sidebar-cart" id="edSidebarCart" aria-labelledby="offcanvasRightLabel">
+            <div className="ed-sidebar-header">
+                <h3 className="ed-sidebar-header-title">Vehicles in cart</h3>
+                <button type="button" className="text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <i className="fi fi-rr-cross"></i>
+                </button>
+            </div>
+
+            <div className="ed-sidebar-body">
+                {items.map((item, index) => (
+                    <div className="ed-sidebar-cart-item" key={index}>
+                        <div className="ed-sidebar-cart-main">
+                            <div className="ed-sidebar-cart-img">
+                                <Image 
+                                    src={`/assets/${item.photo}`} 
+                                    alt={item.name}
+                                    width={100}
+                                    height={100}
+                                />
+                            </div>
+                            <div className="ed-sidebar-cart-info">
+                                <span>{item.quantity} x <strong>₦{ formatNumber(item.quantity * item.price) }</strong></span>
+                                <Link href="#">{item.name}</Link>
+                            </div>
+                        </div>
+                        <div className="ed-sidebar-cart-remove">
+                            <button type="button"><i className="fi-rr-cross"></i></button>
+                        </div>
                     </div>
-                    <div className="ed-sidebar-cart-info">
-                        <span>1 x <strong>₦0</strong></span>
-                        <a href="#">Product name</a>
-                    </div>
-                </div>
-                <div className="ed-sidebar-cart-remove">
-                    <button type="button"><i className="fi-rr-cross"></i></button>
+                ))}                
+            </div>
+
+            <div className="ed-sidebar-footer">
+                <div className="ed-sidebar-cart-subtotal">
+                    <p>Sub Total: <span>₦{ formatNumber(total) }</span></p>
+                    <Link href="/cart" className="ed-sidebar-cart-btn">Confirm Your Pick</Link>
                 </div>
             </div>
-            {/* @endforeach */}
         </div>
-        {/* @endif */}
-
-        <div className="ed-sidebar-footer">
-            <div className="ed-sidebar-cart-subtotal">
-                <p>Subtotal: <span>₦0</span></p>
-                <Link href="/cart" className="ed-sidebar-cart-btn">Go to chosen vehicle(s)</Link>
-                <Link href="/checkout" className="ed-sidebar-cart-btn">Make Payment</Link>
-            </div>
-        </div>
-    </div>
-  )
+    )
 }
 
 export default ShoppingCart

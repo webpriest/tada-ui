@@ -2,7 +2,7 @@
     Start Category CSS
 ===================================================================================================*/
 .ed-category {
-  background: url('/storage/images/section-bg-9.png') no-repeat center center;
+  background: url('/assets/images/section-bg-9.png') no-repeat center center;
 }
 .ed-category__wrapper {
   display: grid;

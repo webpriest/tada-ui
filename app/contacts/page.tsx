@@ -1,4 +1,5 @@
 import PageHeader from "@/components/Layouts/PageHeader"
+import PettyContactForm from "@/components/Sections/Contact/PettyContactForm"
 
 const Contacts = () => {
   return (
@@ -75,27 +76,10 @@ const Contacts = () => {
                                 <span className="ed-contact__form-sm-title">CONTACT US</span>
                                 <h3 className="ed-contact__form-big-title ed-split-text right">
                                     Have questions? <br />
-                                    Let us help
+                                    Contact us now
                                 </h3>
                             </div>
-                            <form action="#" method="post" className="ed-contact__form-main">
-                                <div className="form-group">
-                                    <input type="text" id="name" name="name" placeholder="Full name" required />
-                                </div>
-                                <div className="form-group">
-                                    <input type="email" id="email" name="email" placeholder="Enter your email" required />
-                                </div>
-
-                                <div className="form-group">
-                                    <textarea id="message" name="message" placeholder="Let us know how we could be of help" required></textarea>
-                                </div>
-                                <div className="form-check">
-                                    <label className="form-check-label" htmlFor="flexCheckDefault"> <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />I agree to the &nbsp;<a href="#">Privacy Policy</a>. </label>
-                                </div>
-                                <div className="ed-contact__form-btn">
-                                    <button type="submit" className="ed-btn">Send Message<i className="fi fi-rr-arrow-small-right"></i></button>
-                                </div>
-                            </form>
+                            <PettyContactForm />
                         </div>
                     </div>
                 </div>

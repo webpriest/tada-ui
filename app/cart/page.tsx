@@ -1,10 +1,12 @@
 import PageHeader from "@/components/Layouts/PageHeader"
+import CartList from "@/components/Sections/Cart/CartList"
 
 const Cart = () => {
   return (
     <>
-      <PageHeader title="My Chosen Vehicle(s)" />
+      <PageHeader title="Added Vehicle(s)" />
 
+      <CartList />
     </>
   )
 }

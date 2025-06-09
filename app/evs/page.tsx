@@ -1,5 +1,5 @@
 import PageHeader from "@/components/Layouts/PageHeader"
-import Vehicles from "@/components/Sections/Vehicles";
+import Vehicles from "@/components/Sections/Vehicle/Vehicles";
 
 const Evs = () => {
   return (

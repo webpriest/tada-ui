@@ -55,7 +55,7 @@
 .ed-checkout__summary-item-name img {
   width: 50px;
   min-width: 50px;
-  height: 50px;
+  /* height: 50px; */
   border-radius: 4px;
 }
 .ed-checkout__summary-item-name a:hover {

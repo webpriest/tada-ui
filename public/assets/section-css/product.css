@@ -148,6 +148,7 @@
 .ed-cart__quantity-input {
   width: 145px;
   height: 52px;
+  display: inline-block;
   border-radius: 52px !important;
   background: #faf9f6;
   text-align: center;

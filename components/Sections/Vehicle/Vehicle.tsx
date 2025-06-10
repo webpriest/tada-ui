@@ -41,7 +41,6 @@ const Vehicle = async ({slug}: {slug: string}) => {
                                 </div>
                             </div>
 
-                            {/* Product Details Meta */}
                             <AddToCart ev={ev} />
                         </div>
                     </div>
@@ -85,7 +84,6 @@ const Vehicle = async ({slug}: {slug: string}) => {
                                 </div>
                             </div>
                         ))}
-                        {/* @endforeach */}
                     </div>
                 </div>
             </div>

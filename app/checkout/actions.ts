@@ -1,14 +1,12 @@
-"use server"
-
-import api from "@/utils/axios"
-import { redirect } from "next/navigation"
+import api from "@/utils/axios";
+import { redirect } from "next/navigation";
 
 export type FormState = {
     type: 'success' | 'error' | 'idle';
     message: string;
 };
 
-const createOrder = async (formData: FormData) => {
+export async function createOrder (formData: FormData) {
     const firstname = formData.get("firstname") as string
     const lastname = formData.get("lastname") as string
     const company = formData.get("company") as string
@@ -23,7 +21,7 @@ const createOrder = async (formData: FormData) => {
     const orderNote = formData.get("orderNote") as string
 
     try {
-        const response = await api.post("/api/v1/contact/message", {
+        const response = await api.post("/v1/save/order", {
             method: "POST",
             body: JSON.stringify({ 
                 firstname, 
@@ -40,6 +38,9 @@ const createOrder = async (formData: FormData) => {
                 orderNote 
             })
         })
+        if(response.data.success) {
+            redirect("/checkout/pay")
+        }
     } catch (error: any) {
         if (error.response) {
             // Server responded with a status outside 2xx
@@ -52,7 +53,4 @@ const createOrder = async (formData: FormData) => {
             console.error('Request error:', error.message)
         }
     }
-
-    redirect("/evs")
 }
-export default createOrder

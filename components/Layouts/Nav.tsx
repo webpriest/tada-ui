@@ -6,10 +6,12 @@ import { routes } from '@/utils/routes'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 import { useCartStore } from '@/store/cartStore'
+import { useState } from 'react'
 
 const Nav = () => {
     const pathname = usePathname()
     const navigations = routes
+    const [isOpen, setIsOpen] = useState(false);
 
     const { items } = useCartStore()
     const cartCount = items.reduce((total, item) => total + item.quantity, 0)
@@ -70,7 +72,7 @@ const Nav = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <button type="button" className="mobile-menu-offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal">
+            <button type="button" className="mobile-menu-offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal" onClick={() => setIsOpen(!isOpen)}>
                 <span className="line"></span>
                 <span className="line"></span>
                 <span className="line"></span>

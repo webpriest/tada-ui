@@ -1,21 +1,46 @@
 "use client"
 
-import createOrder from "@/actions/createOrder"
+import { createOrder } from "@/app/checkout/actions"
 import { getStates } from "@/server/states/getStates"
 import { useCartStore } from "@/store/cartStore"
 import { formatNumber } from "@/utils/fomatter"
 import Form from "next/form"
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect, useState } from "react"
+
+interface NgState {
+    id: number
+    statename: string
+}
 
 const CartCheckout = () => {
-    const ngstates = getStates()
+    const [states, setStates] = useState<NgState[]>([])
+    const [loading, setLoading] = useState<boolean>(true)
+
     const { items } = useCartStore()
     const total = items.reduce((accumulated, item) => accumulated + item.price * item.quantity, 0)
+    
+    useEffect(() => {
+        setLoading(true)
+        const allStates = async () => {
+            const states = await getStates()
+            setStates(states)
+            setLoading(false)
+        }
+
+        allStates()
+    }, [])
 
     if(total === 0 || items.length === 0) {
         return (
-            <p className="alert alert-warning">Loading, please wait</p>
+            <div className="container ed-container">
+                <div className="row">
+                    <div className="col-lg-6 offset-lg-3 col-12">
+                        <p className="alert alert-warning">Loading, please wait</p>
+                    </div>
+                </div>
+            </div>
         )
     }
 
@@ -55,10 +80,7 @@ const CartCheckout = () => {
                                                     <div className="ed-checkout__form-group">
                                                         <label className="ed-checkout__label">Country *</label>
                                                         <select name="countryId" className="ed-checkout__select">
-                                                            <option data-display="Select Country">
-                                                                Select Country
-                                                            </option>
-                                                            <option value="nigeria">Nigeria</option>
+                                                            <option value="162">Nigeria</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -69,7 +91,7 @@ const CartCheckout = () => {
                                                             <option data-display="Select Country">
                                                                 Select State
                                                             </option>
-                                                            {/* {ngstates && ngstates.map((state: any) => <option value={state.id} key={state.id}>{state.name}</option>)} */}
+                                                            {states && states.map((state: any) => <option value={state.id} key={state.id}>{state.statename}</option>)}
                                                         </select>
                                                     </div>
                                                 </div>
@@ -150,9 +172,9 @@ const CartCheckout = () => {
                                             </div>
                                         </div>
                                         <div className="ed-payment-infos">
-                                            <button type="submit" className="ed-btn">Pay ₦{ formatNumber(total + (total * 0.075)) } Now<i className="fi fi-rr-money-bills"></i></button>
+                                            <button type="submit" className="ed-btn">Continue to Payment<i className="fi fi-rr-money-bills"></i></button>
                                             <div className="mt-2">
-                                                <small className="text-mute">You will be redirected to Paystack payment gateway</small>
+                                                <small className="text-mute">You will be redirected to <strong>Paystack</strong> payment gateway</small>
                                             </div>
                                         </div>
                                     </div>

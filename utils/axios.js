@@ -4,9 +4,9 @@ import axios from "axios";
 const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://api.tadaautos.com',
     headers: {
-      Accept: 'application/json',
-        // 'Content-Type': 'application/json',
-        // 'X-Requested-With': 'XMLHttpRequest',
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
     },
     withCredentials: true,
 });

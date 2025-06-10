@@ -1,7 +1,6 @@
 "use client"
 
 import api from "@/utils/axios"
-// import { toastified } from "@/utils/toastify"
 
 export async function createContactMessage(formData: FormData) {
     const name = formData.get("name") as string
@@ -11,12 +10,22 @@ export async function createContactMessage(formData: FormData) {
     const company = formData.get("company") as string
     const message = formData.get("message") as string
 
+    const getCsrfToken = async () => {
+        await api.get("http://localhost:8000/sanctum/csrf-cookie", {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+    }
+
     try {
+        // await getCsrfToken()
         const response = await api.post("/v1/contact/message", 
             { name, email, phone, city, company, message },
             {
                 headers: {
                     "Content-Type": "application/json",
+                    'X-CSRF-TOKEN': document.cookie.split('; ').find(row => row.startsWith('XSRF-TOKEN'))?.split('=')[1], // Optional: Manually set token
                 }
             }
         )

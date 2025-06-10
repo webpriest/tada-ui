@@ -9,7 +9,6 @@ import Footer from "@/components/Layouts/Footer";
 import ShoppingCart from "@/components/Layouts/ShoppingCart";
 import ContactUs from "@/components/Layouts/ContactUs";
 import Link from "next/link";
-import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "TADA Autos",
@@ -110,7 +109,6 @@ export default function RootLayout({
             <div id="smooth-wrapper">
                 <div id="smooth-content">
                     <main>
-                        <Toaster position="top-right" />
                         {children}
                     </main>
 

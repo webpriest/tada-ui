@@ -43,28 +43,28 @@ const Vehicles = async () => {
                                 <h5>
                                     {vehicle.name}
                                 </h5>
-                            </Link>
-                            <div className="ed-course__lesson m-0">
-                                {vehicle.vehicleProperties.map((property: any) => (
-                                    <div className="ed-course__part" key={property.id}>
-                                        <i className={property.label.icon}></i>
-                                        <p>{property.value}</p>
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="ed-course__bottom">
-                                <div className="ed-course__teacher">
-                                    <Image 
-                                        src="/assets/images/favicon.svg" 
-                                        alt="logo"
-                                        width={28}
-                                        height={28}
-                                    />
-                                    <a href="#">TADA Autos</a>
+                            
+                                <div className="ed-course__lesson m-0">
+                                    {vehicle.vehicleProperties.map((property: any) => (
+                                        <div className="ed-course__part" key={property.id}>
+                                            <i className={property.label.icon}></i>
+                                            <p>{property.value}</p>
+                                        </div>
+                                    ))}
                                 </div>
-                                {/* <span className="ed-course__price">₦{vehicle.basePrice}</span> */}
-                                <span className="ed-course__price">₦{ formatNumber(vehicle.basePrice) }</span>
-                            </div>
+                                <div className="ed-course__bottom">
+                                    <div className="ed-course__teacher">
+                                        <Image 
+                                            src={`/assets/${vehicle.brand.logo}`} 
+                                            alt={vehicle.brand.name}
+                                            width={40}
+                                            height={40}
+                                        />
+                                    </div>
+                                    {/* <span className="ed-course__price">₦{vehicle.basePrice}</span> */}
+                                    <span className="ed-course__price">₦{ formatNumber(vehicle.basePrice) }</span>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 </div>

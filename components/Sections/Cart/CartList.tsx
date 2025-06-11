@@ -54,7 +54,7 @@ const CartList = () => {
                                                     <i className="fi-rr-cross"></i>
                                                 </button>
                                                 <Image className="ed-cart__product-image" src={`/assets/${item.photo}`} alt={item.name} width={100} height={84} />
-                                                <Link href={`/evs/${item.slug}`} className="ed-cart__product-name">{item.name}</Link>
+                                                <Link href={`/evs/${item.slug}`} className="ed-cart__product-name" style={{minWidth: "250px"}}>{item.name}</Link>
                                             </td>
                                             <td className="ed-cart__price">₦{ formatNumber(item.price) }</td>
                                             <td className="ed-cart__quantity">

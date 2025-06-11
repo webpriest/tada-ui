@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+import Link from 'next/link'
 
 const slides = [
   {
@@ -48,15 +49,15 @@ const Slider = () => {
                             /> */}
                             <div style={{ backgroundImage: `url(${slide.image})`, backgroundSize: 'cover', maxWidth: '100%', maxHeight: '768px' }}>
                                 <div className="container ed-container-expand pt-30 pb-10">
-                                    <div className="row justify-content-left">
-                                        <div className="col-lg-5 col-12">
+                                    <div className="row justify-content-left sheet">
+                                        <div className="col-lg-9 col-12">
                                             {/* Hero Content  */}
                                             <div className="ed-hero__content text-left">
                                                 <h1 className="ed-hero__content-title ed-split-text left">
                                                     {slide.title}
                                                 </h1>
                                                 <div className="ed-hero__search p-0">
-                                                    <a href="#" className="ed-btn">Explore Now<i className="fi fi-rr-arrow-small-right"></i></a>
+                                                    <Link href="/evs" className="ed-btn">Explore Now<i className="fi fi-rr-arrow-small-right"></i></Link>
                                                 </div>
                                             </div>
                                         </div>

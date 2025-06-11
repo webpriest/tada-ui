@@ -29,7 +29,7 @@ const Vehicle = async ({slug}: {slug: string}) => {
                             <div className="ed-product-short">
                                 <h3>{ev.name}</h3>
                                 <div className="ed-properties">
-                                    {ev.vehicleProperties && ev.vehicleProperties.map((property: any) => (
+                                    {ev.vehicleProperties && ev.vehicleProperties.slice(0, 6).map((property: any) => (
                                         <span className="property-item" key={property.id}>
                                             <i className={property.label.icon}></i>
                                             <span className="property-pack">

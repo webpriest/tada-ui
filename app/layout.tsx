@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
 import Script from "next/script";
-import Nav from "@/components/Layouts/Nav";
-import MobileNav from "@/components/Layouts/MobileNav";
+import SiteHeader from "@/components/Layouts/SiteHeader";
 import Footer from "@/components/Layouts/Footer";
 import ShoppingCart from "@/components/Layouts/ShoppingCart";
 import ContactUs from "@/components/Layouts/ContactUs";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "TADA Autos",
@@ -54,57 +51,7 @@ export default function RootLayout({
                 <div id="cursor-ball"></div>
             </div>
 
-            <div className="modal mobile-menu-modal offcanvas-modal fade" id="offcanvas-modal">
-                <div className="modal-dialog offcanvas-dialog">
-                    <div className="modal-content">
-                        <div className="modal-header offcanvas-header">
-                            <div className="offcanvas-logo">
-                                <Link href="/">
-                                    <Image 
-                                        src="/assets/images/logo.svg" 
-                                        alt="TADA"
-                                        width={122} 
-                                        height={70}
-                                        style={{ width: "auto", height: "auto" }}
-                                        priority
-                                        />
-                                </Link>
-                            </div>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                <i className="fi fi-ss-cross"></i>
-                            </button>
-                        </div>
-                        <MobileNav />
-                    </div>
-                </div>
-            </div>
-
-            <header className="ed-header ed-header--style4 ed-header--style5">
-                <div className="container ed-container-expand">
-                    <div className="ed-header__inner">
-
-                        <div className="ed-header__left--style2">
-                            <div className="ed-header__left-widget--style2">
-
-                                <div className="ed-topbar__logo">
-                                    <Link href="/">
-                                        <Image 
-                                            src="/assets/images/logo.svg" 
-                                            alt="TADA"
-                                            width={122} 
-                                            height={70}
-                                            style={{ width: "auto", height: "auto" }}
-                                            priority
-                                        />
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        <Nav />
-                    </div>
-                </div>
-            </header>
+            <SiteHeader />
 
             <div id="smooth-wrapper">
                 <div id="smooth-content">

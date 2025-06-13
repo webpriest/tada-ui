@@ -1,9 +1,34 @@
+"use client"
+
 import { getRecentVehicles } from "@/server/vehicle/recentVehicles"
 import { Autoplay } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
+import 'swiper/css'
+import { useEffect, useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
 
-const RecentEvs = async () => {
-    const vehicles = await getRecentVehicles()
+interface Vehicle {
+    slug: string;
+    name: string;
+    photo: string;
+    brand: {
+        name: string;
+    };
+}
+
+const RecentEvs = () => {
+    const [vehicles, setVehicles] = useState<Vehicle[]>([])
+    const imgPath = process.env.NEXT_PUBLIC_STORAGE_URL
+
+    useEffect(() => {
+        const fetchVehicles = async () => {
+            const evs = await getRecentVehicles()
+
+            setVehicles(evs)
+        }
+        fetchVehicles()
+    }, [])
 
     return (
         <section className="ed-category ed-category--style2 section-gap overflow-hidden">
@@ -21,36 +46,48 @@ const RecentEvs = async () => {
             </div>
             <div className="row">
                 <div className="col-12">
-                    {/* <Swiper
+                    <Swiper
                         modules={[Autoplay]}
+                        spaceBetween={30}
+                        slidesPerView={2}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 2,
+                            },
+                            768: {
+                                slidesPerView: 3,
+                            },
+                            1024: {
+                                slidesPerView: 4,
+                            },
+                        }}
                         autoplay={{ delay: 4000, disableOnInteraction: false }}
+                        loop={true}
+                        className="ed-category__slider"
                     >
-                        <div className="swiper ed-category__slider">
-                            <div className="swiper-wrapper">
-                                {vehicles && vehicles.map((vehicle: any) => (
-                                <div className="swiper-slide">
-                                    <SwiperSlide key={vehicle.slug}>
-                                        <div className="ed-category__card ed-category__card--style2">
-                                                <div className="ed-category__img">
-                                                    <img src={`/assets/${vehicle.photo}`} alt={vehicle.name} />
-                                                </div>
-                                                <a href="course-1.php" className="ed-category__content">
-                                                    <div className="ed-category__icon">
-                                                        <img src={`/assets/${vehicle.photo}`} alt={vehicle.name} />
-                                                    </div>
-                                                    <div className="ed-category__info">
-                                                        <h4>{vehicle.name}</h4>
-                                                        <p>{vehicle.brand.name}</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </SwiperSlide>
-                                    </div> 
-                                ))}
-                            </div>
-
-                        </div>
-                    </Swiper> */}
+                        {vehicles && vehicles.map((vehicle) => (
+                            <SwiperSlide key={vehicle.slug}>
+                                <div className="ed-category__card ed-category__card--style2">
+                                    <div className="ed-category__img">
+                                        <Link href={`/evs/${vehicle.slug}`}>
+                                            <Image 
+                                                src={`${imgPath}/${vehicle.photo}`} 
+                                                alt={vehicle.name}
+                                                width={370}
+                                                height={200}
+                                            />
+                                        </Link>
+                                    </div>
+                                    <Link href={`/evs/${vehicle.slug}`} className="ed-category__content">
+                                        <div className="ed-category__info">
+                                            <h4>{vehicle.name}</h4>
+                                            <p>{vehicle.brand.name}</p>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
             </div>
         </section>

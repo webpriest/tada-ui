@@ -95,6 +95,11 @@
     width: 400px;
 }
 
+/* Mobile menu */
+.modal {
+    --bs-modal-width: 350px;
+}
+
 /* Home slider */
 .sheet {
     background-color: rgba(255, 255, 255, 0.5);

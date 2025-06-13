@@ -8,16 +8,35 @@ interface VehicleProperty {
     value: string
 }
 
+interface VehiclePhoto {
+    id: number
+    filename: string
+    caption: string
+}
+
+interface Brand {
+    id: number
+    name: string
+    slug: string
+    logo: string
+}
+
+interface Category {
+    id: number
+    name: string
+    slug: string
+}
+
 interface Vehicle {
     id: number
     name: string
     slug: string
-    category: string
-    brand: string
+    category: Category
+    brand: Brand
     basePrice: number
     discount: number
     photo: string
-    vehiclePhotos: Array<string>
+    vehiclePhotos: VehiclePhoto[]
     vehicleProperties: VehicleProperty[]
     description: string
 }

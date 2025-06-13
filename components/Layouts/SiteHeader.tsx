@@ -13,9 +13,11 @@ import { routes } from '@/utils/routes'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { useCartStore } from '@/store/cartStore'
+import { useRouter } from "next/navigation"
 
 const SiteHeader = () => {
     const pathname = usePathname()
+    const router = useRouter()
     const navigations = routes
     const [isMenuOpen, setIsMenuOpen] = useState(true)
 
@@ -53,18 +55,23 @@ const SiteHeader = () => {
                 <div className="modal-dialog offcanvas-dialog">
                     <div className="modal-content">
                         <div className="modal-header offcanvas-header">
-                            <div className="offcanvas-logo">
-                                <Link href="/">
-                                    <Image 
-                                        src="/assets/images/logo.svg" 
-                                        alt="TADA"
-                                        width={122} 
-                                        height={70}
-                                        style={{ width: "auto", height: "auto" }}
-                                        priority
-                                        />
-                                </Link>
+                            <div className="ed-header__left--style2">
+                                <div className="ed-header__left-widget--style2">
+                                    <div className="ed-topbar__logo">
+                                        <Link href="/">
+                                            <Image 
+                                                src="/assets/images/logo.svg" 
+                                                alt="TADA"
+                                                width={122} 
+                                                height={70}
+                                                style={{ width: "auto", height: "auto" }}
+                                                priority
+                                            />
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
+                            
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                 <i className="fi fi-ss-cross"></i>
                             </button>
@@ -80,7 +87,7 @@ const SiteHeader = () => {
                                                 <ul className="offcanvas__sub_menu">
                                                     {navigation.children.map((child, childIndex) => (
                                                         <li key={childIndex} className="offcanvas__sub_menu_li">
-                                                            <Link href={child.path} className="offcanvas__sub_menu_item" >{child.name}</Link>
+                                                            <Link href={child.path} className="offcanvas__sub_menu_item" onClick={closeMenu}>{child.name}</Link>
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -101,7 +108,6 @@ const SiteHeader = () => {
 
                         <div className="ed-header__left--style2">
                             <div className="ed-header__left-widget--style2">
-
                                 <div className="ed-topbar__logo">
                                     <Link href="/">
                                         <Image 
@@ -139,7 +145,7 @@ const SiteHeader = () => {
                             </nav>
                             <div className="ed-header__action">
                                 <span className="header-divider">//</span>
-                                <div className="ed-header__cart">
+                                <div className="ed-header__cart d-none d-lg-block">
                                     <button type="button" data-bs-toggle="offcanvas" data-bs-target="#edSidebarCart" aria-controls="offcanvasRight" className="ed-topbar__action-icon">
                                         <Image 
                                             src="/assets/images/icons/icon-grey-bag.svg" 
@@ -173,11 +179,24 @@ const SiteHeader = () => {
                             </div>
 
                             {/* Mobile Menu Button */}
-                            <button type="button" className="mobile-menu-offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal" onClick={() => openMenu()}>
-                                <span className="line"></span>
-                                <span className="line"></span>
-                                <span className="line"></span>
-                            </button>
+                            <div className="mobile-header-actions d-lg-none d-flex align-items-center gap-3">
+                                <div className="ed-header__cart">
+                                    <button type="button" onClick={() => router.push('/cart')} className="ed-topbar__action-icon">
+                                        <Image 
+                                            src="/assets/images/icons/icon-grey-bag.svg" 
+                                            alt="icon-grey-bag"
+                                            width={21}
+                                            height={21}
+                                        />
+                                        <span>{cartCount > 0 && cartCount || 0}</span>
+                                    </button>
+                                </div>
+                                <button type="button" className="mobile-menu-offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal" onClick={() => openMenu()}>
+                                    <span className="line"></span>
+                                    <span className="line"></span>
+                                    <span className="line"></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

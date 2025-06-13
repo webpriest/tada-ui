@@ -1,4 +1,5 @@
 import Image from "next/image"
+import NewsletterSubscription from "../Sections/NewsletterSubscription"
 
 const ContactUs = () => {
   return (
@@ -67,26 +68,23 @@ const ContactUs = () => {
                 <h3 className="ed-sidebar-widget-title">Follow Us:</h3>
                 <ul className="ed-sidebar-social">
                     <li>
-                        <a href="https://www.facebook.com/" target="_blank"><Image src="/assets/images/icons/icon-dark-facebook.svg" alt="icon-dark-facebook" width={100} 
-                                height={100} /></a>
+                        <a href="https://www.facebook.com/" target="_blank"><Image src="/assets/images/icons/icon-dark-facebook.svg" alt="icon-dark-facebook" width={25} 
+                                height={25} /></a>
                     </li>
                     <li>
-                        <a href="https://www.twitter.com/" target="_blank"><Image src="/assets/images/icons/icon-dark-twitter.svg" alt="icon-dark-twitter" width={100} 
-                                height={100} /></a>
+                        <a href="https://www.twitter.com/" target="_blank"><Image src="/assets/images/icons/icon-dark-twitter.svg" alt="icon-dark-twitter" width={25} 
+                                height={25} /></a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/" target="_blank"><Image src="/assets/images/icons/icon-dark-instagram.svg" alt="icon-dark-instagram" width={100} 
-                                height={100} /></a>
+                        <a href="https://www.instagram.com/" target="_blank"><Image src="/assets/images/icons/icon-dark-instagram.svg" alt="icon-dark-instagram" width={25} 
+                                height={25} /></a>
                     </li>
                 </ul>
             </div>
 
             <div className="ed-sidebar-widget">
                 <h3 className="ed-sidebar-widget-title">Subscribe</h3>
-                <form action="#" method="post" className="ed-sidebar-subscribe">
-                    <input type="email" name="email-address" placeholder="Enter email" required />
-                    <button type="submit" className="ed-btn">Subscribe<i className="fi fi-rr-arrow-small-right"></i></button>
-                </form>
+                <NewsletterSubscription />
             </div>
         </div>
     </div>

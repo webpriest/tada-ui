@@ -8,12 +8,25 @@ interface VehicleProperty {
     value: string
 }
 
+interface Brand {
+    id: number
+    name: string
+    slug: string
+    logo: string
+}
+
+interface Category {
+    id: number
+    name: string
+    slug: string
+}
+
 interface Vehicle {
     id: string
     name: string
     slug: string
-    category: string
-    brand: string
+    category: Category
+    brand: Brand
     basePrice: number
     discount: number
     photo: string

@@ -8,6 +8,7 @@ import Link from "next/link"
 const CartList = () => {
     const { items, addItem, removeItem, removeWholeItem, clearCart } = useCartStore()
     const total = items.reduce((accumulated, item) => accumulated + item.price * item.quantity, 0)
+    const imgPath = process.env.NEXT_PUBLIC_STORAGE_URL
 
     if(total === 0 || items.length === 0) {
         return (
@@ -53,7 +54,7 @@ const CartList = () => {
                                                 <button className="ed-cart__remove-button" onClick={() => removeWholeItem(item.id)}>
                                                     <i className="fi-rr-cross"></i>
                                                 </button>
-                                                <Image className="ed-cart__product-image" src={`/assets/${item.photo}`} alt={item.name} width={100} height={84} />
+                                                <Image className="ed-cart__product-image" src={`${imgPath}/${item.photo}`} alt={item.name} width={100} height={84} />
                                                 <Link href={`/evs/${item.slug}`} className="ed-cart__product-name" style={{minWidth: "250px"}}>{item.name}</Link>
                                             </td>
                                             <td className="ed-cart__price">₦{ formatNumber(item.price) }</td>

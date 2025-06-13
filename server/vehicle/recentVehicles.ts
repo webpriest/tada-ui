@@ -1,11 +1,14 @@
 import api from "@/utils/axios";
 
+interface Brand {
+    id: number
+    name: string
+}
 interface Vehicle {
     id: number
     name: string
     slug: string
-    category: string
-    brand: string
+    brand: Brand
     basePrice: number
     discount: number
     photo: string

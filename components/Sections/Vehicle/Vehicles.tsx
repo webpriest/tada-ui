@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 const Vehicles = async () => {   
   const evs = await getVehicles()
+  const imgPath = process.env.NEXT_PUBLIC_STORAGE_URL
 
   return (
     <section className="ed-course section-gap position-relative background-image" style={{ backgroundImage: "url(/assets/images/section-bg-9.png)" }}>
@@ -31,7 +32,7 @@ const Vehicles = async () => {
                         <div className="ed-course__cover">
                             <Link href={`/evs/${vehicle.slug}`} className="ed-course__img">
                                 <Image 
-                                    src={`/assets/${vehicle.photo}`} 
+                                    src={`${imgPath}/${vehicle.photo}`} 
                                     alt={vehicle.name}
                                     width={1366}
                                     height={768}

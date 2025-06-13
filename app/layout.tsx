@@ -6,6 +6,7 @@ import SiteHeader from "@/components/Layouts/SiteHeader";
 import Footer from "@/components/Layouts/Footer";
 import ShoppingCart from "@/components/Layouts/ShoppingCart";
 import ContactUs from "@/components/Layouts/ContactUs";
+import { Toaster } from 'react-hot-toast'
 
 export const metadata: Metadata = {
   title: "TADA Autos",
@@ -29,13 +30,7 @@ export default function RootLayout({
         <head>        
         <link rel="shortcut icon" href="/assets/images/favicon.svg" />
 
-        {/* <link rel="stylesheet" href="/assets/plugins/css/bootstrap.min.css" /> */}
-
         <link rel="stylesheet" href="/assets/plugins/css/animate.min.css" />
-
-        {/* <link rel="stylesheet" href="/assets/plugins/css/owl.carousel.min.css" /> */}
-
-        {/* <link rel="stylesheet" href="/assets/plugins/css/swiper-bundle.min.css" /> */}
 
         <link rel="stylesheet" href="/assets/plugins/css/maginific-popup.min.css" />
 
@@ -88,8 +83,6 @@ export default function RootLayout({
 
             <Script src="/assets/plugins/js/owl.carousel.min.js"></Script>
 
-            {/* <Script src="/assets/plugins/js/swiper-bundle.min.js"></Script> */}
-
             <Script src="/assets/plugins/js/magnific-popup.min.js"></Script>
 
             <Script src="/assets/plugins/js/jquery.counterup.min.js"></Script>
@@ -99,6 +92,12 @@ export default function RootLayout({
             <Script src="/assets/plugins/js/backToTop.js"></Script>
 
             <Script src="/assets/plugins/js/active.js"></Script>
+            <Toaster 
+                position="top-right"
+                toastOptions={{
+                    duration: 5000
+                }}    
+            />
         </body>
     </html>
  );

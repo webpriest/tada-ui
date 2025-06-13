@@ -6,6 +6,7 @@ import AddToCart from '../AddToCart'
 
 const Vehicle = async ({slug}: {slug: string}) => {
     const ev = await getVehicle({slug})
+    const imgPath = process.env.NEXT_PUBLIC_STORAGE_URL
 
     return (
         <>
@@ -16,7 +17,7 @@ const Vehicle = async ({slug}: {slug: string}) => {
                         {/* TADA Details Image   */}
                         <div className="ed-shop-thumb">
                             <Image 
-                                src={`/assets/${ev.photo}`} 
+                                src={`${imgPath}/${ev.photo}`} 
                                 alt={ev.name}
                                 width={1366}
                                 height={768}
@@ -73,7 +74,7 @@ const Vehicle = async ({slug}: {slug: string}) => {
                                 <div className="ed-course__card wow fadeInUp">
                                     <Link href="#" className="ed-course__img">
                                         <Image 
-                                            src={`/assets/${photo.filename}`} 
+                                            src={`${imgPath}/${photo.filename}`} 
                                             alt={photo.caption}
                                             width={1366}
                                             height={768}
@@ -120,7 +121,7 @@ const Vehicle = async ({slug}: {slug: string}) => {
                                 </Link>
                                 ))
                             ) : (
-                                <p>No properties available.</p>
+                                <p>No property available.</p>
                             )}
                         </div>
                     </div>

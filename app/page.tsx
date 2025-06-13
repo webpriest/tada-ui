@@ -4,7 +4,7 @@ import RecentEvs from "@/components/Sections/RecentEvs";
 import Slider from "@/components/Sections/Slider";
 import Testimonials from "@/components/Sections/Testimonials";
 import Vehicles from "@/components/Sections/Vehicle/Vehicles";
-import VideoOverlay from "@/components/Sections/VideoOverlay";
+import Faqs from "@/components/Sections/Faqs";
 
 export default async function Home() {
   
@@ -20,7 +20,7 @@ export default async function Home() {
 
       <RecentEvs />
 
-      <VideoOverlay />
+      <Faqs />
 
       <Testimonials />
     </>

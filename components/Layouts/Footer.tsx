@@ -1,5 +1,7 @@
 import Image from "next/image"
 import FooterCta from "./FooterCta"
+import NewsletterSubscription from "../Sections/NewsletterSubscription"
+import Link from "next/link"
 
 const Footer = () => {
   return (
@@ -89,11 +91,11 @@ const Footer = () => {
                             <div className="ed-footer__widget">
                                 <h4 className="ed-footer__widget-title">Top Brands</h4>
                                 <ul className="ed-footer__widget-links">
-                                    <li><a href="#">BYD</a></li>
-                                    <li><a href="#">Tesla</a></li>
-                                    <li><a href="#">Toyota</a></li>
-                                    <li><a href="#">Geely</a></li>
-                                    <li><a href="#">Zeekr</a></li>
+                                    <li><Link href="/brands/byd">BYD</Link></li>
+                                    <li><Link href="/brands/tesla">Tesla</Link></li>
+                                    <li><Link href="/brands/toyota">Toyota</Link></li>
+                                    <li><Link href="/brands/geely">Geely</Link></li>
+                                    <li><Link href="/brands/zeekr">Zeekr</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -156,10 +158,7 @@ const Footer = () => {
                                     <p className="ed-footer__about-text">
                                         Enter your email address to join our newsletter subscription
                                     </p>
-                                    <form action="#" method="post" className="ed-footer__newsletter-form">
-                                        <input type="email" name="email" placeholder="Enter email" required />
-                                        <button type="submit" className="ed-btn">Subscribe Now<i className="fi fi-rr-arrow-small-right"></i></button>
-                                    </form>
+                                    <NewsletterSubscription />
                                 </div>
                             </div>
                         </div>

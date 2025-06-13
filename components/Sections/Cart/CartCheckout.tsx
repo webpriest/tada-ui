@@ -20,6 +20,7 @@ const CartCheckout = () => {
 
     const { items } = useCartStore()
     const total = items.reduce((accumulated, item) => accumulated + item.price * item.quantity, 0)
+    const imgPath = process.env.NEXT_PUBLIC_STORAGE_URL
     
     useEffect(() => {
         setLoading(true)
@@ -148,7 +149,7 @@ const CartCheckout = () => {
                                                 {items && items.map((item, key) => (
                                                     <div className="ed-checkout__summary-item" key={key}>
                                                         <div className="ed-checkout__summary-item-name">
-                                                            <Image src={`/assets/${item.photo}`} alt={item.name} width={50} height={30} />
+                                                            <Image src={`${imgPath}/${item.photo}`} alt={item.name} width={50} height={30} />
                                                             <Link href={`/evs/${item.slug}`}>{item.name} <small className="bold text-primary">x</small> {item.quantity}</Link>
                                                         </div>
                                                         <span className="ed-checkout__summary-item-price">₦{formatNumber(item.price * item.quantity)}</span>

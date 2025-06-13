@@ -5,6 +5,7 @@ import { formatNumber } from "@/utils/fomatter"
 
 export const VehicleBrand = async ({slug}: {slug: string}) => {
     const brand = await getBrand({slug})
+    const imgPath = process.env.NEXT_PUBLIC_STORAGE_URL
 
   return (
     <section className="ed-course__details">
@@ -15,7 +16,7 @@ export const VehicleBrand = async ({slug}: {slug: string}) => {
                         <div className="ed-course__sidebar-widget">
                             <div className="ed-course__sidebar-img text-center">
                                 <Image
-                                    src={`/assets/${brand.logo}`} 
+                                    src={`${imgPath}/${brand.logo}`} 
                                     alt={brand.name}
                                     width={100}
                                     height={100}
@@ -48,7 +49,7 @@ export const VehicleBrand = async ({slug}: {slug: string}) => {
                                                 </h5>
                                             </Link>
                                             <div className="from-brand ed-course__lesson m-0">
-                                                {vehicle.vehicleProperties.map((property: any) => (
+                                                {vehicle.vehicleProperties.slice(0, 6).map((property: any) => (
                                                     <div className="ed-course__part" key={property.id}>
                                                         <i className={property.label.icon}></i>
                                                         <p>{property.value}</p>

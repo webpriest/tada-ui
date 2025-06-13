@@ -1,6 +1,5 @@
 "use client"
 
-import { createOrder } from "@/app/checkout/actions"
 import { getStates } from "@/server/states/getStates"
 import { useCartStore } from "@/store/cartStore"
 import { formatNumber } from "@/utils/fomatter"

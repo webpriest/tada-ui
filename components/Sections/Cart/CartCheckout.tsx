@@ -50,7 +50,7 @@ const CartCheckout = () => {
                 <div className="row">
                     <div className="col-12">
                         <div className="ed-checkout__form-wrapper">
-                            <Form action={createOrder} className="ed-checkout__form">
+                            <Form action="#" className="ed-checkout__form">
                                 <div className="row">
                                     <div className="col-lg-8 col-12 mg-top-40">
                                         <div className="ed-checkout__section">

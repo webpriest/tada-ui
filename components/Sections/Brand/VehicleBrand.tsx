@@ -35,7 +35,7 @@ export const VehicleBrand = async ({slug}: {slug: string}) => {
                                         <div className="ed-course__cover">
                                             <Link href={`/evs/${vehicle.slug}`} className="ed-course__img">
                                                 <Image 
-                                                    src={`/assets/${vehicle.photo}`} 
+                                                    src={`${imgPath}/${vehicle.photo}`} 
                                                     alt={vehicle.name}
                                                     width={1366}
                                                     height={768}
